@@ -76,6 +76,21 @@ def draw() :
         # equivalente a que la pelota vaya hacia abajo
         incrementoY = 5
     
+    # Si la pelota está horizontalmente en la misma posicion o mas hacia la izquierda que la barra izquierda...
+    if( posicionPelotaX < 30) :
+        # Y ademas se encuentra entre el extremo superior < posicion Y pelota < extremo inferior de la barra izquierda..
+        if (( posicionPelotaY > posicionBarraIzqY ) and (posicionPelotaY < posicionBarraIzqY + 100)) :
+            # Invertir dirección hacia la derecha (X positiva)
+            incrementoX = 5
+                
+    # Si la pelota está horizontalmente en la misma posicion o mas hacia la derecha que la barra derecha...
+    if( posicionPelotaX > width - 30) :
+        # Y ademas se encuentra entre el extremo superior < posicion Y pelota < extremo inferior de la barra derecha..
+        if (( posicionPelotaY > posicionBarraDerY ) and (posicionPelotaY < posicionBarraDerY + 100)) :
+            # Invertir dirección hacia la izquierda (X negativa)
+            incrementoX = -5
+
+    
     # Aqui sumamos los incrementos de X e Y a las posiciones
     # OJO POR QUE SON INCREMENTOS DEL VALOR ACTUAL.
     posicionPelotaX = posicionPelotaX + incrementoX
@@ -90,7 +105,3 @@ def draw() :
     
     # Creamos pelota con funcion ellipse
     ellipse(posicionPelotaX,posicionPelotaY,10,10)
-    
-
-    
-    
