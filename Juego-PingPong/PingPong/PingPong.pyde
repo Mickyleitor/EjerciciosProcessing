@@ -12,6 +12,10 @@ incrementoY = 5
 posicionBarraIzqY = 0
 posicionBarraDerY = 0
 
+# Variables para la puntuación de los jugadores
+puntuacionJugadorIzq = 0
+puntuacionJugadorDer = 0
+
 def setup() :
     # Nuestra programa será de 800 px por 800 px
     size(800,800)
@@ -23,7 +27,7 @@ def setup() :
 def draw() :
     # Exportamos nuestras variables globales
     # para que se puedan usar dentro de draw()
-    global posicionBarraIzqY, posicionBarraDerY, posicionPelotaX, posicionPelotaY, incrementoX, incrementoY
+    global posicionBarraIzqY, posicionBarraDerY, posicionPelotaX, posicionPelotaY, incrementoX, incrementoY, puntuacionJugadorIzq, puntuacionJugadorDer
     
     # Comprobamos si se ha pulsado alguna tecla
     if (keyPressed == True) :
@@ -40,6 +44,7 @@ def draw() :
         if( key == 'l') :
             posicionBarraDerY = posicionBarraDerY + 10
     
+    
     # Comprobamos los limites inferior y superior de la barra izquierda
     if (posicionBarraIzqY < 0 ) :
         posicionBarraIzqY = 0
@@ -52,17 +57,31 @@ def draw() :
     if (posicionBarraDerY > height - 100) :
         posicionBarraDerY = height - 100
     
+    
     # ¿La posición X de la pelota es mayor nuestro width? (Limite derecho)
     if (posicionPelotaX > width) :
+        # Aumentamos puntuacion del jugador izquierdo
+        # ya que la pelota ha marcado puntuacion por el lado derecho
+        puntuacionJugadorIzq = puntuacionJugadorIzq + 1
         # Si lo supera, el incremento será negativo
         # equivalente a que la pelota vaya hacia la izquierda
         incrementoX = -5
-    
+        # Reseteamos la pelota al centro de la pantalla
+        posicionPelotaX = width/2
+        posicionPelotaY = height/2
+
     # ¿La posición X de la pelota es menor 0? (Limite izquierdo)
     if (posicionPelotaX < 0) :
+        # Aumentamos puntuacion del jugador derecho
+        # ya que la pelota ha marcado puntuacion por el lado izquierdo
+        puntuacionJugadorDer = puntuacionJugadorDer + 1
         # Si es menor, el incremento será positivo
         # equivalente a que la pelota vaya hacia la derecha
         incrementoX = 5
+        # Reseteamos la pelota al centro de la pantalla
+        posicionPelotaX = width/2
+        posicionPelotaY = height/2
+        
         
     # ¿La posición Y de la pelota es mayor que nuestro height? (Limite inferior)
     if (posicionPelotaY > height) :
@@ -75,6 +94,7 @@ def draw() :
         # Si es menor, el incremento será positivo
         # equivalente a que la pelota vaya hacia abajo
         incrementoY = 5
+    
     
     # Si la pelota está horizontalmente en la misma posicion o mas hacia la izquierda que la barra izquierda...
     if( posicionPelotaX < 30) :
@@ -105,3 +125,8 @@ def draw() :
     
     # Creamos pelota con funcion ellipse
     ellipse(posicionPelotaX,posicionPelotaY,10,10)
+    # Con esta función ponemos las letras bastante mas grandes de lo normal
+    textSize(32)
+    # Creamos los textos con las puntuaciones en el area que queramos
+    text(puntuacionJugadorDer,width/2 + 100, height - 100)
+    text(puntuacionJugadorIzq,width/2 - 100, height - 100)
