@@ -1,6 +1,6 @@
 Ejercicios de Processing (Python)
 
-Estos ejercicios son parte de un curso de introducción a la programación con Python.
+Estos ejercicios son parte del temario para clases particulares sobre "Introducción a la programación con Python".
 
 # PingPong
 Famoso juego sobre una pelota que rebota sobre unas tablas
