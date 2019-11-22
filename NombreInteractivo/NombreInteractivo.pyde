@@ -1,46 +1,32 @@
-posicionBotonX = 300
-posicionBotonY = 300
-anchoBoton = 200
-altoBoton = 100
+# Crear 4 Arrays que contengan todos los X1,X2,Y1,Y2 para
+# la funcion line(...)
+# Ejemplo : myNombreX1 = { 20 , 10 , 50, 10 }
+
+##RELLENAR AQUI
 
 def setup() :
     size(800,800)
     
 
 def draw() :
-    background(0) 
-    if sobreBoton() :
-        if mousePressed :
-            fill(color(255,0,0))
-        else :
-            fill(color(128))        
-    else :
-        # Si está el raton pulsado,
-        # mover el boton a donde esté pulsado el boton
-        
-        ## RELLENAR AQUI
-        if mousePressed :
-			moverBoton()
-		else :
-			fill(color(255))
-        
-        # si no, rellenar con fill(color(255))
+    background(255) 
     
-    rect(posicionBotonX,posicionBotonY,anchoBoton,altoBoton)
+    line(20,60,20,20)
+    line(20,20,40,40)
+    line(40,40,60,20)
+    line(60,20,60,60)
+    line(80,20,80,60)
+    line(100,20,100,60)
+    line(100,20,140,20)
+    line(100,60,140,60)
+    line(160,20,160,60)
+    line(160,40,180,20)
+    line(160,40,180,60)
+    line(200,20,220,40)
+    line(240,20,200,60)
+    
+        
+    line(0,height/2,width,height/2)
+    line(width/2,0,width/2,height)
     
     # Fin del draw()
-
-def sobreBoton() :
-    if ( (mouseX > posicionBotonX) and (mouseX < posicionBotonX + anchoBoton)) :
-        if ((mouseY > posicionBotonY) and (mouseY < posicionBotonY + altoBoton)) :
-            return True
-        else :
-            return False
-    else :
-        return False
-    
-def moverBoton():
-    global posicionBotonX,posicionBotonY
-    # Actualizar posicion de boton con respecto a mouseX y mouseY
-	posicionBotonX = mouseX
-	posicionBotonY = mouseY
