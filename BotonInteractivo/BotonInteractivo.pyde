@@ -8,16 +8,18 @@ def setup() :
     
 
 def draw() :
-    background(0)
-    # Utilizar la funcion sobreBoton() para ver si el raton está sobre el recuadro.
-    # Si esta sobre el recuadro, rellenar con fill(color(128))
-    # Si no esta sobre el recuadro, rellenar con fill(color(255))
+    background(0)  
+    if sobreBoton() :
+        # Si el raton esta sobre el recuadro y está pulsando el boton izquierdo,
+        # mover el recuadro hasta donde esté el mouse y rellenarlo con fill(color(200))
+        # Si no, rellenar con fill(color(128))
+        
+        ## RELLENAR AQUI
+        pass
+    else :
+        fill(color(255))
     
-    ## RELLENAR AQUI
-    
-    # Dibujar recuadro con rect(...) y los parametros definidos arriba del todo
-    
-    ## RELLENAR AQUI
+    rect(posicionBotonX,posicionBotonY,anchoBoton,altoBoton)
     
     # Fin del draw()
 
