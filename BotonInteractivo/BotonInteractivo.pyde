@@ -8,16 +8,20 @@ def setup() :
     
 
 def draw() :
-    background(0)  
+    background(0) 
     if sobreBoton() :
-        # Si el raton esta sobre el recuadro y está pulsando el boton izquierdo,
-        # mover el recuadro hasta donde esté el mouse y rellenarlo con fill(color(200))
-        # Si no, rellenar con fill(color(128))
+        if mousePressed :
+            fill(color(255,0,0))
+        else :
+            fill(color(128))        
+    else :
+        # Si está el raton pulsado,
+        # mover el boton a donde esté pulsado el boton
         
         ## RELLENAR AQUI
         pass
-    else :
-        fill(color(255))
+        
+        # si no, rellenar con fill(color(255))
     
     rect(posicionBotonX,posicionBotonY,anchoBoton,altoBoton)
     
@@ -31,3 +35,7 @@ def sobreBoton() :
             return False
     else :
         return False
+    
+def moverBoton():
+    global posicionBotonX,posicionBotonY
+    # Actualizar posicion de boton con respecto a mouseX y mouseY
