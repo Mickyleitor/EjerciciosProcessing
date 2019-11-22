@@ -19,7 +19,10 @@ def draw() :
         # mover el boton a donde esté pulsado el boton
         
         ## RELLENAR AQUI
-        pass
+        if mousePressed :
+			moverBoton()
+		else :
+			fill(color(255))
         
         # si no, rellenar con fill(color(255))
     
@@ -39,3 +42,5 @@ def sobreBoton() :
 def moverBoton():
     global posicionBotonX,posicionBotonY
     # Actualizar posicion de boton con respecto a mouseX y mouseY
+	posicionBotonX = mouseX
+	posicionBotonY = mouseY
