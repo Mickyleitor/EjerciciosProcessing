@@ -15,6 +15,10 @@ def draw() :
     
     for i in range ( 0 , 13 ) :
         line(myNombreX1[i]+desplazamientoX,myNombreY1[i]+desplazamientoY,myNombreX2[i]+desplazamientoX,myNombreY2[i]+desplazamientoY)
+        
+    # Cuando el boton del ratón este pulsado,
+    # mover el nombre a la posicion del raton con
+    # moverNombre()
 
     line(0,height/2,width,height/2)
     line(width/2,0,width/2,height)
@@ -24,3 +28,5 @@ def draw() :
 def moverNombre():
     global desplazamientoX,desplazamientoY
     # Actualizar posicion de nombre con respecto a mouseX y mouseY
+    desplazamientoX = mouseX
+    desplazamientoY = mouseY
